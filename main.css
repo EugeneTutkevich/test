@@ -1,14 +1,267 @@
-#main {
-    width: 100px;
-    height: 100px;
-    background-color: blue;
-    border-radius: 50%;
-    margin: 50px;
+
+body {
+    margin: 0;
+
 }
 
-#red {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    margin: 50px;
+/*------------CONTAINER------------*/
+
+#container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #81d0e1;
+}
+
+/*------------GEOMETRY------------*/
+
+.geometry-line {
+    position: absolute;
+    top: 70px;
+    left: 280px;
+}
+
+.geometry-ellipse {
+    position: absolute;
+    top: 90px;
+    left: 687px;
+}
+
+.geometry-rectangle {
+    position: absolute;
+    top: 26px;
+    left: 911px;
+}
+
+.geometry-rectangle-big {
+    position: absolute;
+    top: 200px;
+    right: 0;
+}
+
+.geometry-polygon {
+    position: absolute;
+    top: 1px;
+    left: 1340px;
+}
+
+.geometry-big-ellipse {
+    position: absolute;
+    bottom: 1px;
+    left: 15px;
+}
+
+.geometry-big-polygon {
+    position: absolute;
+    bottom: 15px;
+    right: 500px;
+}
+
+.geometry-rectangle-small {
+    position: absolute;
+    bottom: 120px;
+    right: 166px;
+}
+/*------------HEADER------------*/
+
+#header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 3px solid rgb(255, 255, 255);
+    opacity: 0.6;
+    box-sizing: border-box;
+    transition: all .7s ease;
+}
+
+.icon svg {
+    transform: translate(12px, 13px);
+}
+
+.icon:hover {
+    border: 3px solid rgb(255,255,255);
+    box-shadow: #81d0e1 0 0 0 2px, rgba(255, 255, 255, .5) 0 0 0 4px, inset #81d0e1 0 0 0 3px, inset rgba(255, 255, 255, .3) 0 0 0 4px;
+    transition: all .7s ease;
+    opacity: 1;
+}
+
+#wrapper-mail {
+    display: flex;
+    position: relative;
+}
+
+#wrapper-mail::after {
+    content: 'Sign up to our newsletter';
+    font-size: 18px;
+    width: 200px;
+    position: absolute;
+    top: 30px;
+    left: 65px;
+    transition: all .8s;
+    opacity: 0;
+    color: #FFFFFF;
+}
+
+#wrapper-mail:hover::after {
+    transform: translateY(-16px);
+    opacity: 1;
+}
+
+#wrapper-social {
+    display: flex;
+}
+
+#wrapper-social .icon {
+    margin: 0 15px;
+}
+
+#wrapper-social .icon:last-child {
+    margin-right: 0;
+}
+
+
+/*------------MAIN------------*/
+
+#main {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-title {
+    margin-bottom: 41px;
+    font-size: 83px;
+    line-height: 97px;
+    position: relative;
+
+    text-transform: uppercase;
+    letter-spacing: 0.975em;
+    margin-right: -0.975em; /*маскирует отступ для последней буквы*/
+    color: #FFFFFF;
+}
+
+#main-title::after {
+    content: '';
+    position: absolute;
+    top: 13px;
+    left: 127px;
+    width: 50px;
+    height: 50px;
+    border: 10px solid rgba(255,255,255,0.51);
+    border-radius: 50%;
+
+    animation: pulse 2.5s ease-in infinite ;
+}
+
+#main-text {
+
+    margin-bottom: 42px;
+    font-size: 50px;
+    line-height: 59px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+
+}
+
+
+#main-social a {
+    text-decoration: none;
+
+}
+
+#main-social .main-social-icon img {
+    transition: all .5s ease;
+}
+
+#main-social .main-social-icon img:hover {
+    transform: scale(1.1);
+
+
+}
+
+/*------------MOUSE------------*/
+
+#action {
+    position: fixed;
+    left: calc(50% - 15px);
+    bottom: 0;
+
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#mouse {
+    animation: shift-mouse 2s infinite;
+}
+
+#arrow {
+    transform: translateY(-3px);
+    text-align: center;
+    animation: shift-arrow 2s infinite;
+}
+
+#arrow svg:last-child {
+    transform: translateY(-14px);
+}
+
+
+/*------------ANIMATION------------*/
+
+@keyframes shift-mouse {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(9px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+
+}
+
+@keyframes shift-arrow {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(13px);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+
 }
